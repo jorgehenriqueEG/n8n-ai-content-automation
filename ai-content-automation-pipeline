@@ -466,7 +466,7 @@
     },
     {
       "parameters": {
-        "content": "se funcionar tudo vou ter que deixar somente um navegador para o tiktok,youtube e o workflow funcionando "
+        "content": " "
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -589,7 +589,7 @@
     },
     {
       "parameters": {
-        "content": "esperar ate quarta para tentar lançar algo no youtube \n",
+        "content": "",
         "height": 80,
         "width": 239.1161298545906,
         "color": 3
