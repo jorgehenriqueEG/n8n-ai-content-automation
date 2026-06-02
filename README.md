@@ -1,59 +1,93 @@
-SubTales Video Automation Workflow
+# N8N AI Content Automation Pipeline
 
-This project is a comprehensive automation within n8n that utilizes Artificial Intelligence to generate stories, synthesize narration via gTTS, render videos using FFmpeg, and prepare content for automated posting.
-Workflow Overview
+## Overview
 
-    Scheduling: Automated triggers initiate the process on business days at 08:00.
+Automated content generation pipeline built with n8n, Artificial Intelligence, Python, Docker and AWS.
 
-    Theme Generation: The system selects random themes, characters, and locations to ensure unique story outputs.
+The workflow automatically generates stories using LLMs, converts text to audio, creates subtitles, renders videos and prepares content for social media publishing.
 
-    Creative Writing (LLM): Integration with Groq (Llama 3.1) generates detailed scripts based on the defined themes.
+## Main Features
 
-    Audio Synthesis: Text is converted to speech using Python and gTTS.
+* Automated workflow scheduling
+* Dynamic prompt generation
+* AI-powered story creation
+* Text-to-Speech conversion (gTTS)
+* Automatic subtitle generation (SRT)
+* Video rendering with FFmpeg
+* Audio processing with FFprobe
+* Social media content preparation
+* TikTok publishing integration
+* Error handling and validation
+* Temporary file cleanup
+* Modular workflow architecture
 
-    Subtitle Generation: The process generates synchronized .srt files.
+## Technologies
 
-    Video Rendering: FFmpeg processes the visual output, overlaying audio, burned-in subtitles, and resizing content to 1080x1920 (vertical format).
+### Automation
 
-    Platform Distribution: Generation of metadata, titles, and SEO-optimized descriptions for TikTok and YouTube.
+* n8n
 
-System Requirements
+### Artificial Intelligence
 
-The environment hosting the n8n instance must support the following:
+* Groq API
+* Llama 3.1
 
-    Python 3: With the gTTS library installed (pip install gTTS).
+### Backend
 
-    FFmpeg & FFprobe: Required for audio and video stream manipulation, analysis, and rendering.
+* JavaScript
+* Python
 
-    Chromium & Playwright: Required for the automated web-based upload modules.
+### Infrastructure
 
-    File System Paths:
+* Docker
+* AWS EC2
+* Linux
 
-        /tmp/subtales_audio/ for temporary audio chunks.
+### Media Processing
 
-        /data/subtales_video/ for final rendered output.
+* FFmpeg
+* FFprobe
+* gTTS
 
-Workflow Architecture
-1. Context Generation
+### Version Control
 
-The Choose Theme & Universe node sets the creative foundation. The Create Story Prompt node translates these into machine-readable instructions, strictly enforcing the removal of unwanted characters, quotes, and sound cues to ensure clean output.
-2. Audio Processing
+* Git
+* GitHub
 
-The text is split into segments for processing. The Execute gTTS Python node handles synthesis. The FFprobe utility validates audio duration against the background video duration to ensure the final result maintains integrity.
-3. Rendering Pipeline
+## Workflow
 
-The Create Final Video node executes the core FFmpeg command:
+1. Scheduled trigger starts the process
+2. Random story theme is generated
+3. AI creates the story
+4. Story validation is performed
+5. Audio narration is generated
+6. Subtitles are created automatically
+7. Background video is selected
+8. Final video is rendered
+9. Social media metadata is generated
+10. Content is prepared for publishing
 
-    Input: Background loop and generated audio.
+## Skills Demonstrated
 
-    Filter: scale=1080:1920 ensures vertical consistency; subtitles filter burns the text directly into the frame.
+* Workflow Automation
+* AI Integration
+* API Consumption
+* Prompt Engineering
+* Media Processing
+* Cloud Infrastructure
+* Containerization
+* Software Integration
+* Error Handling
+* Data Processing
 
-    Encoding: libx264 codec with -preset ultrafast and -crf 28 for an efficient balance between speed and visual quality.
+## Status
 
-Configuration and Security
+Active project under continuous improvement.
 
-    Groq API: Ensure your API key is correctly configured in the Groq Chat Model node.
+Future improvements:
 
-    Session Management: For automated uploads, the system expects a session_tiktok.json file located in the home directory of the n8n service user.
-
-    Validation: The Pre-Post Validation node ensures that the story length and word count align with the specific constraints of the video type (short or long) before proceeding to rendering.
+* YouTube automated publishing
+* TikTok automated publishing
+* Additional AI models
+* Analytics dashboard
+* Performance optimization
